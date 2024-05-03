@@ -1,0 +1,11 @@
+%%Measure of MS SSIM
+I_3 = imnoise(result,'salt & pepper',0.05);
+score3 = multissim(I_3,result);
+disp('Multiscale SSIM');
+disp(score3);
+%%Measure of SSIM
+H3= fspecial("Gaussian",[11 11],1.5);
+A3 = imfilter(result,H3,"replicate");
+ssimval3 = ssim(A3,result);
+disp('SSIM VALUE=');
+disp(ssimval3);
